@@ -11,9 +11,10 @@ public class FistControl : MonoBehaviour {
 	public float speed = 0.1f;
 	private Fist fist;
 	bool toPunch = false;
-	Vector3 punchDirection = new Vector3(0f, 0f, 0f);
+	private Vector3 punchDirection = new Vector3(0f, 0f, 0f);
 	private Vector3 Target = new Vector3 (1, 0, 0); 
 	private float OrbitDist = 5.0f;
+	private bool punching = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +22,10 @@ public class FistControl : MonoBehaviour {
 		playerPos = transform.parent.transform.position;
 		offset = transform.position - playerPos;
 		fist = GetComponent<Fist> ();
+	}
+
+	public Vector3 getPunchDirection(){
+		return punchDirection;
 	}
 
 	void Update(){
@@ -52,22 +57,9 @@ public class FistControl : MonoBehaviour {
 		}
 		Vector3 temp  = new Vector3(rb.transform.position.x - playerPos.x, 0, rb.transform.position.z - playerPos.z);
 		punchDirection = temp;
-		if (Input.GetKey (KeyCode.JoystickButton5) == true) {
-			rb.AddForce (punchDirection * 100);
-		} else {
-			transform.position = playerPos + offset;
-			punchDirection = Vector3.zero;
-		}
-
-
-	}
-		
-	void FixedUpdate(){
-		Vector3 temp  = new Vector3(rb.transform.position.x - playerPos.x, 0, rb.transform.position.z - playerPos.z);
-		punchDirection = temp;
-		fist.Punch (punchDirection.normalized, toPunch);
-		toPunch = false;
 		transform.position = playerPos + offset;
-		punchDirection = Vector3.zero;
+
 	}
+
+
 }

@@ -47,8 +47,15 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Controller Tester\Scripts\DetectUnknownControllerMappings.cs" />
+     <Compile Include="Assets\Scripts\Ball.cs" />
+     <Compile Include="Assets\Scripts\BallControl.cs" />
      <Compile Include="Assets\Scripts\Fist.cs" />
      <Compile Include="Assets\Scripts\FistControl.cs" />
+     <Compile Include="Assets\Scripts\MessageManager.cs" />
+     <Compile Include="Assets\Scripts\Punching.cs" />
+     <Compile Include="Assets\Scripts\ResetManagement.cs" />
+     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
+     <Compile Include="Assets\Scripts\SoundManager.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

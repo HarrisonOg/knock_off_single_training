@@ -7,6 +7,7 @@ public class Fist : MonoBehaviour {
 	private Rigidbody rb;
 	Vector3 offset = new Vector3(0f, 0f, 0f);
 	Vector3 playerPos = new Vector3(0f,0f,0f);
+	public float punchDistance = 5.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,6 @@ public class Fist : MonoBehaviour {
 		offset = transform.position - playerPos;
 	}
 
-	public void Punch (Vector3 input, bool toDo) {
-		if (toDo) {
-			rb.AddForce (input * punchPower);
-		} else {
-			transform.position = playerPos + offset;
-		}
-	}
+
+
 }
