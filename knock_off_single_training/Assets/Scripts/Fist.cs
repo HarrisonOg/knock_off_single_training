@@ -16,6 +16,8 @@ public class Fist : MonoBehaviour {
 		offset = transform.position - playerPos;
 	}
 
-
+	public void makeFistBig(){
+		rb.transform.localScale = new Vector3 (.05f, .05f, .05f);
+	}
 
 }

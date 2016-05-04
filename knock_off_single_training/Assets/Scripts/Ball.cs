@@ -2,43 +2,61 @@
 using UnityEngine;
 
 public class Ball : MonoBehaviour
+{
+	private float m_MovePower = 5; // The force added to the ball to move it.
+	private bool m_UseTorque = true; // Whether or not to use torque to move the ball.
+	private float m_MaxAngularVelocity = 25; // The maximum velocity the ball can rotate at.
+	private float m_JumpPower = 0.5f; // The force added to the ball when it jumps.
+
+	private const float k_GroundRayLength = 1f; // The length of the ray to check if the ball is grounded.
+	private Rigidbody m_Rigidbody;
+	private float m_standardMass;
+
+
+	private void Start()
 	{
-		private float m_MovePower = 5; // The force added to the ball to move it.
-		private bool m_UseTorque = true; // Whether or not to use torque to move the ball.
-		private float m_MaxAngularVelocity = 25; // The maximum velocity the ball can rotate at.
-		private float m_JumpPower = 0.5f; // The force added to the ball when it jumps.
-
-		private const float k_GroundRayLength = 1f; // The length of the ray to check if the ball is grounded.
-		private Rigidbody m_Rigidbody;
+		m_Rigidbody = GetComponent<Rigidbody>();
+		// Set the maximum angular velocity.
+		GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
+		m_standardMass = m_Rigidbody.mass;
+	}
 
 
-		private void Start()
+	public void Move(Vector3 moveDirection, bool jump)
+	{
+		// If using torque to rotate the ball...
+		if (m_UseTorque)
 		{
-			m_Rigidbody = GetComponent<Rigidbody>();
-			// Set the maximum angular velocity.
-			GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
+			// ... add torque around the axis defined by the move direction.
+			m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x)*m_MovePower);
+		}
+		else
+		{
+			// Otherwise add force in the move direction.
+			m_Rigidbody.AddForce(moveDirection*m_MovePower);
 		}
 
-
-		public void Move(Vector3 moveDirection, bool jump)
+		// If on the ground and jump is pressed...
+		if (Physics.Raycast(transform.position, -Vector3.up, k_GroundRayLength) && jump)
 		{
-			// If using torque to rotate the ball...
-			if (m_UseTorque)
-			{
-				// ... add torque around the axis defined by the move direction.
-				m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x)*m_MovePower);
-			}
-			else
-			{
-				// Otherwise add force in the move direction.
-				m_Rigidbody.AddForce(moveDirection*m_MovePower);
-			}
-
-			// If on the ground and jump is pressed...
-			if (Physics.Raycast(transform.position, -Vector3.up, k_GroundRayLength) && jump)
-			{
-				// ... add force in upwards.
-				m_Rigidbody.AddForce(Vector3.up*m_JumpPower, ForceMode.Impulse);
-			}
+			// ... add force in upwards.
+			m_Rigidbody.AddForce(Vector3.up*m_JumpPower, ForceMode.Impulse);
 		}
+	}
+
+	public void increaseSpeed(float newPower)
+	{
+		m_MovePower = newPower;
+	}
+
+	public void increaseMass()
+	{
+		m_Rigidbody.mass *= 5;
+	}
+
+	public void resetPowerups()
+	{
+		m_MovePower = 5;
+		m_Rigidbody.mass = m_standardMass;
+	}
 }

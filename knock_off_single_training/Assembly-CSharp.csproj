@@ -45,12 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\Controller Tester\Scripts\DetectUnknownControllerMappings.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\BallControl.cs" />
+     <Compile Include="Assets\Scripts\BigFistPowerup.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\FastSpeedPowerup.cs" />
      <Compile Include="Assets\Scripts\Fist.cs" />
      <Compile Include="Assets\Scripts\FistControl.cs" />
+     <Compile Include="Assets\Scripts\HeavyMassPowerup.cs" />
      <Compile Include="Assets\Scripts\MessageManager.cs" />
      <Compile Include="Assets\Scripts\Punching.cs" />
      <Compile Include="Assets\Scripts\ResetManagement.cs" />
