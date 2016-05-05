@@ -13,7 +13,7 @@ public class Punching : MonoBehaviour {
 
 	void Update() {
 		punchDirection = fistcontrol.getPunchDirection();
-		if (!punching && Input.GetKey (KeyCode.JoystickButton5)) {
+		if (!punching && Input.GetKey (KeyCode.JoystickButton7)) {
 			StartCoroutine(Punch(0.5f, 1.25f, punchDirection));
 		}
 	}

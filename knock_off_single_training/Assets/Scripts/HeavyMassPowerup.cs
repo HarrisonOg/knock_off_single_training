@@ -13,11 +13,11 @@ public class HeavyMassPowerup : MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnCollisionEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Ball ball = other.GetComponent<Ball> ();
-			ball.increaseMass();
-			Destroy (this);
+			//Debug.Log ("collision", other.gameObject.name);
+			other.GetComponent<PlayerController>().increaseMass();
+			Destroy (this.gameObject);
 		}
 	}
 }

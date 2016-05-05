@@ -1,13 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ball.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/HeavyMassPowerup.cs" Line="21" Column="4" />
-      <File FileName="Assets/Scripts/BigFistPowerup.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FastSpeedPowerup.cs" Line="4" Column="30" />
-      <File FileName="Assets/Scripts/BallControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Ball.cs" Line="52" Column="27" />
+      <File FileName="Assets/Scripts/HeavyMassPowerup.cs" Line="23" Column="2" />
+      <File FileName="Assets/Scripts/BigFistPowerup.cs" Line="22" Column="4" />
+      <File FileName="Assets/Scripts/FastSpeedPowerup.cs" Line="20" Column="30" />
       <File FileName="Assets/Scripts/MessageManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="34" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

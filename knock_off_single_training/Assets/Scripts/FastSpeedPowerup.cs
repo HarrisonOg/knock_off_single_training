@@ -13,11 +13,11 @@ public class FastSpeedPowerup: MonoBehaviour {
 
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnCollisionEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Ball ball = other.GetComponent<Ball> ();
-			ball.increaseSpeed (7.5f);
-			Destroy (this);
+			//Debug.Log ("collision", "" + other.gameObject.name);
+			other.GetComponent<PlayerController> ().increaseSpeed (7.5f);
+			Destroy (this.gameObject);
 		}
 	}
 }

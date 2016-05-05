@@ -13,11 +13,12 @@ public class BigFistPowerup : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnCollisionEnter(Collider other) {
 		if (other.gameObject.tag == "Player") {
-			Fist fist = other.GetComponent<Fist> ();
-			fist.makeFistBig ();
-			Destroy (this);
+			//Debug.Log ("collision", other.gameObject.name);
+			other.GetComponent<Fist> ().makeFistBig();
+
+			Destroy (this.gameObject);
 		}
 	}
 }
